@@ -249,7 +249,7 @@ namespace Mandatory_IMDB_Assignment.Inserter
             {
                 foreach (var item in res)
                 {
-                    Console.WriteLine($" Name {userParam1}, BirthYear {userParam2}");
+                    Console.WriteLine($" Name {userParam1} BirthYear {userParam2}");
                 }
             }
             else

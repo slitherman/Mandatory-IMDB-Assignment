@@ -71,11 +71,8 @@ public partial class ImdbContext : DbContext
                 .HasNoKey()
                 .ToView("GenresAndTitlesPublic");
 
-            entity.Property(e => e.GenreName)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("genre_name");
-            entity.Property(e => e.IsAdult).HasColumnName("isAdult");
+        
+         
             entity.Property(e => e.OriginalTitle)
                 .HasMaxLength(255)
                 .IsUnicode(false)
@@ -84,11 +81,7 @@ public partial class ImdbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("primaryTitle");
-            entity.Property(e => e.RuntimeMinutes).HasColumnName("runtimeMinutes");
-            entity.Property(e => e.TitleType)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("titleType");
+         
         });
 
         modelBuilder.Entity<KnownForTitle>(entity =>
