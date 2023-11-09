@@ -157,10 +157,10 @@ namespace Mandatory_IMDB_Assignment
                     case "7":
                         Console.WriteLine("Enter Search Parameters:");
                         Console.Write("Name to Search: ");
-                        string userParam1 = Console.ReadLine();
+                        string? userParam1 = Console.ReadLine();
                         Console.Write("Birth Year to Search: ");
                         string userParam2Input = Console.ReadLine();
-                        int? userParaam2 = !string.IsNullOrEmpty(userParam2Input) ? int.Parse(userParam2Input) : null;
+                        int userParaam2 = int.Parse(userParam2Input);
 
                         Console.WriteLine("Searching for Staff...");
                         var staffResults = eF.FindStaffSP(userParam1, userParaam2);

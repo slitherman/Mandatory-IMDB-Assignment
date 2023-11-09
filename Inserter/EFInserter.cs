@@ -114,6 +114,8 @@ namespace Mandatory_IMDB_Assignment.Inserter
 
                     context.Add(movie);
                     context.SaveChanges();
+
+                    Console.WriteLine($" THe movie {primaryTitle} has successfully been added");
                 }
                 catch (Exception ex)
                 {
@@ -236,20 +238,20 @@ namespace Mandatory_IMDB_Assignment.Inserter
 
         }
 
-      private bool MapToBool(int value )
+      private bool MapToBool(int value)
         {
             return value == 1;
         }
-        public List<Staff> FindStaffSP(string userParam1,int? userParam2)
+        public List<Staff> FindStaffSP(string userParam1,int userParam2)
         {
 
-            var sql = $"exec FindPerson {userParam1},{userParam2}";
+            var sql = $"exec FindPerson '{userParam1}',{userParam2}";
             var res = _context.Staff.FromSqlRaw(sql).ToList();
             if (res.Count > 0)
             {
                 foreach (var item in res)
                 {
-                    Console.WriteLine($" Name {userParam1} BirthYear {userParam2}");
+                    Console.WriteLine($" Name: {item.PrimaryName} BirthYear: {item.BirthYear} ");
                 }
             }
             else
@@ -261,7 +263,7 @@ namespace Mandatory_IMDB_Assignment.Inserter
         }
         public List<GenresAndTitlesPublic> FindMovieTitleSP(string userParam)
         {
-            var sql = $"exec Find_movie_title {userParam}";
+            var sql = $"exec Find_movie_title '{userParam}'";
             var res = _context.GenresAndTitlesPublics.FromSqlRaw(sql).ToList();
          
             if (res.Count > 0)
